@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 
 @QuarkusTest
 @TestInstance(PER_CLASS)
-public class PersonResourceTest {
+class PersonResourceTest {
 
     @Inject
     PersonRepository personRepository;
@@ -57,7 +57,7 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void testGetAllEndpoint() {
+    void testGetAllEndpoint() {
         given()
                 .when().get("/persons")
                 .then()
@@ -66,7 +66,7 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void testGetByIdEndpoint() {
+    void testGetByIdEndpoint() {
         given()
                 .when().get("/persons/{id}", person1.id.toString())
                 .then()
@@ -75,7 +75,7 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void testCreateEndpoint() {
+    void testCreateEndpoint() {
         Map<String, String> payload = new HashMap<>();
         payload.put("name", "Person 3");
         payload.put("status", "ALIVE");
@@ -90,7 +90,7 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void testUpdateEndpoint() {
+    void testUpdateEndpoint() {
         Map<String, String> payload = new HashMap<>();
         payload.put("name", "Person 2 Updated");
         payload.put("status", "ALIVE");
@@ -105,7 +105,7 @@ public class PersonResourceTest {
     }
 
     @Test
-    public void testDeleteEndpoint() {
+    void testDeleteEndpoint() {
         given()
                 .contentType(JSON)
                 .when().delete("/persons/{id}", personToDelete.id.toString())

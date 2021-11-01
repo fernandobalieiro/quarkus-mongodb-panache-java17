@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 
+import static org.acme.mongodb.panache.Status.ALIVE;
+
 @MongoEntity(collection="people")
 public class Person {
     public ObjectId id;
@@ -14,5 +16,5 @@ public class Person {
     @BsonProperty("birth")
     public LocalDateTime birthDate = LocalDateTime.now();
 
-    public Status status;
+    public Status status = ALIVE;
 }
